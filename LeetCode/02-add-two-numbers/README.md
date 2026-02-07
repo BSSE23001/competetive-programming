@@ -1,6 +1,6 @@
 # Add Two Numbers
 
-**Difficulty:** Medium | **Status:** Solved
+**Difficulty:** Medium
 
 ## Problem Description
 
