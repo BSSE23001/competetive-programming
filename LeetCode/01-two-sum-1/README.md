@@ -38,3 +38,23 @@ Given an array of integers `nums` and an integer `target`, return the indices of
 ## Follow-up
 
 Can you solve this with better than **O(n²)** time complexity?
+
+## Solution
+
+### Algorithm: Hash Map Approach
+
+**Time Complexity:** O(n)  
+**Space Complexity:** O(n)
+
+#### Approach
+
+1. Create a hash map to store `value → index` pairs
+2. Iterate through the array with index `i`:
+   - Calculate `complement = target - nums[i]`
+   - If `complement` exists in the hash map, return `[hash_map[complement], i]`
+   - Otherwise, store `nums[i] → i` in the hash map
+3. Return empty array if no pair is found
+
+#### Why This Works
+
+By using a hash map, we can check if the complement exists in O(1) time, reducing the overall complexity from O(n²) to O(n).

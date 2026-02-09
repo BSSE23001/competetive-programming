@@ -43,7 +43,28 @@ Explanation: 9,999,999 + 9,999 = 10,009,998
 
 Use two pointers to traverse both lists simultaneously, handling carry from addition at each step.
 
-## Complexity Analysis
+## Solution
 
-- **Time Complexity:** O(max(m, n)) where m and n are list lengths
-- **Space Complexity:** O(max(m, n)) for the result list
+### Algorithm
+
+1. Create a dummy node with value 0
+2. Set current pointer to dummy node
+3. Initialize `carry = 0`
+4. **While** `l1` exists **or** `l2` exists **or** `carry > 0`:
+   - Calculate `sum = carry + (l1.val or 0) + (l2.val or 0)`
+   - Update `carry = sum / 10` (integer division)
+   - Create new node with `value = sum % 10`
+   - Append new node to current
+   - Move current to next node
+   - If `l1` exists, advance to `l1.next`
+   - If `l2` exists, advance to `l2.next`
+5. Return `dummy.next` (skip the dummy node)
+
+### Complexity Analysis
+
+| Metric | Complexity               |
+| ------ | ------------------------ |
+| Time   | O(max(len(l1), len(l2))) |
+| Space  | O(max(len(l1), len(l2))) |
+
+The result list length equals the longer input list plus potential carry overflow.
